@@ -7,6 +7,7 @@ specifiers:
   eslint: ^8.5.0
   eslint-config-airbnb-base: ^15.0.0
   eslint-config-prettier: ^8.3.0
+  eslint-import-resolver-typescript: ^2.5.0
   eslint-plugin-import: ^2.25.3
   eslint-plugin-jest: ^25.3.2
   eslint-plugin-prettier: ^4.0.0
@@ -31,6 +32,7 @@ devDependencies:
   eslint: 8.5.0
   eslint-config-airbnb-base: 15.0.0_f385d671d5f1c72a868db745a891bc1f
   eslint-config-prettier: 8.3.0_eslint@8.5.0
+  eslint-import-resolver-typescript: 2.5.0_f385d671d5f1c72a868db745a891bc1f
   eslint-plugin-import: 2.25.3_eslint@8.5.0
   eslint-plugin-jest: 25.3.2_990c28b4e064feebc714f81a39b45c75
   eslint-plugin-prettier: 4.0.0_94e1b6d3ce6ea916847122712570e9ae
@@ -1067,6 +1069,24 @@ packages:
     dependencies:
       debug: 3.2.7
       resolve: 1.20.0
+    dev: true
+
+  /eslint-import-resolver-typescript/2.5.0_f385d671d5f1c72a868db745a891bc1f:
+    resolution: {integrity: sha512-qZ6e5CFr+I7K4VVhQu3M/9xGv9/YmwsEXrsm3nimw8vWaVHRDrQRp26BgCypTxBp3vUp4o5aVEJRiy0F2DFddQ==}
+    engines: {node: '>=4'}
+    peerDependencies:
+      eslint: '*'
+      eslint-plugin-import: '*'
+    dependencies:
+      debug: 4.3.3
+      eslint: 8.5.0
+      eslint-plugin-import: 2.25.3_eslint@8.5.0
+      glob: 7.2.0
+      is-glob: 4.0.3
+      resolve: 1.20.0
+      tsconfig-paths: 3.12.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /eslint-module-utils/2.7.1:
