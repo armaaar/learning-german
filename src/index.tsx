@@ -1,8 +1,7 @@
-import { render } from 'solid-js/web';
+import { render } from "solid-js/web";
+import { PagesRouter } from "./pages/PagesRouter";
 
-import { PagesRouter } from './pages/PagesRouter';
+import "normalize.css";
+import "./styles/styles.scss";
 
-import 'normalize.css'
-import './index.scss'
-
-render(() => <PagesRouter />, document.getElementById('root') as HTMLElement);
+render(() => <PagesRouter />, document.getElementById("root") as HTMLElement);

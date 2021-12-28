@@ -1,27 +1,9 @@
-import type { Component } from 'solid-js';
-
-import logo from '../../assets/logo.svg';
-import styles from './Home.module.scss';
+import type { Component } from "solid-js";
+import { WordCard } from "../../components/WordCard/WordCard";
+import { WORDS } from "../../data/words.data";
 
 export const Home: Component = () => {
-  return (
-    <div class={styles.App}>
-      <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
-    </div>
-  );
+  return <WordCard entry={WORDS[12]} />;
 };
 
 export default Home;

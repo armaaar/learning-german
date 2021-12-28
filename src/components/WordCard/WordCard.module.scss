@@ -1,0 +1,75 @@
+@use "src/styles/styles.scss" as styles;
+
+.card {
+  display: block;
+  width: 100%;
+  background-color: styles.$cards-color;
+  color: styles.$text-color;
+  padding: 20px;
+  border: 1px solid styles.$text-color;
+  margin-bottom: 30px;
+}
+
+.typesContainer {
+  display: block;
+  font-size: styles.$font-size-s;
+  margin-bottom: 10px;
+}
+.subType {
+  padding-left: 10px;
+  font-style: italic;
+}
+
+.word {
+  font-size: styles.$font-size-l;
+  line-height: styles.$font-size-l;
+  font-weight: 400;
+  margin-bottom: 20px;
+  @include styles.icon("\1F508");
+  &::before {
+    vertical-align: bottom;
+  }
+}
+
+.word_small {
+  @extend .word;
+  font-size: styles.$font-size-m;
+  margin-bottom: 10px;
+  &::before {
+    font-size: styles.$font-size-s;
+  }
+}
+
+.section {
+  margin-bottom: 10px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.title {
+  text-transform: capitalize;
+
+  font-size: styles.$font-size-m;
+  margin-bottom: 10px;
+}
+
+.alignedList {
+  width: auto;
+  text-align: left;
+}
+
+.alignedListHead {
+  text-transform: capitalize;
+
+  padding-bottom: 10px;
+  padding-right: 20px;
+  &::before {
+    content: "\2022";
+    padding-right: 10px;
+  }
+}
+
+.alignedListData {
+  padding-bottom: 10px;
+}
