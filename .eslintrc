@@ -18,6 +18,7 @@
     }
   },
   "rules": {
+    "multiline-comment-style": "off",
     "no-restricted-syntax": "off",
     "import/no-default-export": "off",
     "no-shadow": "off",

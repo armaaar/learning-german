@@ -11,7 +11,12 @@ export const NavList: Component<Props> = (props) => (
     <ul class={styles.list}>
       <For each={props.list}>
         {(item) => (
-          <li class={styles.item} onClick={() => props.onSelect(item)}>
+          <li
+            role="button"
+            tabIndex={0}
+            class={styles.item}
+            onClick={() => props.onSelect(item)}
+          >
             {item}
           </li>
         )}
