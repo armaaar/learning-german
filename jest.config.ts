@@ -7,5 +7,7 @@ const config: Config.InitialOptions = {
   moduleNameMapper: {
     "^.+\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/cssStub.ts",
   },
+  collectCoverage: true,
+  coverageReporters: ["text"],
 };
 export default config;

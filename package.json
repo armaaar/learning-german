@@ -12,8 +12,9 @@
     "lint:eslint": "eslint ./src",
     "lint:prettier": "prettier -c ./src",
     "lint:stylelint": "stylelint ./src/**/*.{scss,sass,css}",
-    "lint": "pnpm lint:ts && pnpm lint:eslint && pnpm lint:prettier && pnpm lint:stylelint",
-    "test": "jest ./src --runInBand"
+    "lint": "pnpm lint:ts && pnpm lint:eslint && pnpm lint:stylelint && pnpm lint:prettier",
+    "test": "jest ./src --runInBand",
+    "test:coverage": "pnpm test -- --coverage-reporters html"
   },
   "license": "MIT",
   "devDependencies": {
