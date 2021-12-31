@@ -1,6 +1,6 @@
 import type { Word } from "./Word.type";
 
-export enum Courses {
+export const enum Courses {
   dfa = "DFA",
   lingoni = "Lingoni",
 }
