@@ -24,6 +24,7 @@ export const NavList: Component<Props> = (props) => {
               class={styles.item}
               classList={{ [styles.selected]: isSelected(item) }}
               onClick={() => !isSelected(item) && props.onSelect?.(item)}
+              onkeypress={() => !isSelected(item) && props.onSelect?.(item)}
               data-testid={ifTest(
                 isSelected(item) ? SELECTED_ITEM_TEST_ID : undefined
               )}

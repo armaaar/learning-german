@@ -1,0 +1,16 @@
+@use "src/styles/styles.scss" as styles;
+
+.typeList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.typeName {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  @include styles.icon("\1F524");
+}

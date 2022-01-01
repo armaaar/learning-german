@@ -64,10 +64,10 @@ export const WordCard: Component<Props> = (props) => {
       {/* Type */}
       <div class={styles.typesContainer}>
         <span>{WordType[props.entry.type]}</span>
-        <Show when={props.entry.subType}>
+        <Show when={props.entry.subType !== undefined}>
           <span class={styles.subType}>
             {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-            {WordTypeSubTypes[props.entry.subType!]}
+            ({WordTypeSubTypes[props.entry.subType!]})
           </span>
         </Show>
       </div>
