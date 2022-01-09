@@ -23,7 +23,7 @@ export const WordCard: Component<Props> = (props) => {
 
   // methods
   function speak(word: string): void {
-    textToSpeach(word || props.entry.word);
+    textToSpeach(word);
   }
 
   const cleanWord = (word: string): string =>

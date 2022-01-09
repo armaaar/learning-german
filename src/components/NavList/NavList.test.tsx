@@ -37,6 +37,18 @@ describe("NavList", () => {
     });
   });
 
+  it("call `onSelect` method on keypress for focused items", () => {
+    const mockCallback = jest.fn();
+    render(() => <NavList list={testItems} onSelect={mockCallback} />);
+    testItems.forEach((item, index) => {
+      const itemElement = screen.getByText(item);
+      itemElement.focus();
+      userEvent.keyboard("{enter}");
+      expect(mockCallback).toBeCalledTimes(index + 1);
+      expect(mockCallback).toBeCalledWith(item);
+    });
+  });
+
   it("Cannot reselect an already selected item", () => {
     const mockCallback = jest.fn();
     render(() => (
