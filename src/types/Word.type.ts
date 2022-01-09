@@ -4,7 +4,7 @@ export enum Languages {
 }
 
 export enum WordType {
-  word,
+  noun,
   job,
   verb,
   adjective,
@@ -17,7 +17,7 @@ export enum WordType {
   sentence,
 }
 
-export enum WordTypeSubTypes {
+export enum NounTypeSubTypes {
   masculine,
   feminine,
   neutral,
@@ -28,7 +28,7 @@ export enum AdjectiveTypeSubTypes {
   color,
 }
 
-export type WordSubTypes = WordTypeSubTypes | AdjectiveTypeSubTypes;
+export type WordSubTypes = NounTypeSubTypes | AdjectiveTypeSubTypes;
 
 export type Word = {
   word: string;
@@ -38,15 +38,15 @@ export type Word = {
   [L in Languages]?: string;
 } & (
     | {
-        type: WordType.word;
-        subType: WordTypeSubTypes;
+        type: WordType.noun;
+        subType: NounTypeSubTypes;
       }
     | {
         type: WordType.adjective;
         subType: AdjectiveTypeSubTypes;
       }
     | {
-        type: Exclude<WordType, WordType.word | WordType.adjective>;
+        type: Exclude<WordType, WordType.noun | WordType.adjective>;
         subType?: never;
       }
   );

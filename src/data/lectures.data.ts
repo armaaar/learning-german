@@ -1,5 +1,5 @@
 import { Courses, Lecture } from "../types/Lecture.type";
-import { WordTypeSubTypes, WordType } from "../types/Word.type";
+import { NounTypeSubTypes, WordType } from "../types/Word.type";
 
 export const LECTURES: Lecture[] = [
   {
@@ -25,9 +25,10 @@ export const LECTURES: Lecture[] = [
         arabic: "ربما",
       },
       {
-        word: "das Auto",
-        type: WordType.word,
-        subType: WordTypeSubTypes.neutral,
+        word: "Auto",
+        variations: ["Das Auto"],
+        type: WordType.noun,
+        subType: NounTypeSubTypes.neutral,
         english: "Car",
         arabic: "سيارة",
       },
@@ -50,9 +51,10 @@ export const LECTURES: Lecture[] = [
         arabic: "أنا",
       },
       {
-        word: "der Name",
-        type: WordType.word,
-        subType: WordTypeSubTypes.masculine,
+        word: "Name",
+        variations: ["Der Name"],
+        type: WordType.noun,
+        subType: NounTypeSubTypes.masculine,
         english: "Name",
         arabic: "إسم",
       },
@@ -70,16 +72,18 @@ export const LECTURES: Lecture[] = [
         arabic: "يتعلم",
       },
       {
-        word: "der Mann",
-        type: WordType.word,
-        subType: WordTypeSubTypes.masculine,
+        word: "Mann",
+        variations: ["Der Mann"],
+        type: WordType.noun,
+        subType: NounTypeSubTypes.masculine,
         english: "Man",
         arabic: "رجل",
       },
       {
-        word: "die Frau",
-        type: WordType.word,
-        subType: WordTypeSubTypes.feminine,
+        word: "Frau",
+        variations: ["Die Frau"],
+        type: WordType.noun,
+        subType: NounTypeSubTypes.feminine,
         english: "Woman",
         arabic: "امرأة",
       },

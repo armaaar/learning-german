@@ -10,7 +10,7 @@ type Descripted<T> = {
  * @param enumeration Enumeration object.
  * @param separatorRegex Regex that would catch the separator in your enum key.
  */
-export function enumToDescriptedArray<T>(
+export function enumToDescriptiveArray<T>(
   enumeration: T,
   separatorRegex = /_/g
 ): Descripted<T>[] {

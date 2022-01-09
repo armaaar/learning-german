@@ -1,22 +1,25 @@
 import { Component, createMemo, For, Show } from "solid-js";
-import { WORDS } from "../../data/words.data";
 import {
   Languages,
   Word,
   WordType,
-  WordTypeSubTypes,
+  NounTypeSubTypes,
 } from "../../types/Word.type";
-import { enumToDescriptedArray } from "../../utils/enumToArray";
+import { enumToDescriptiveArray } from "../../utils/enumToArray";
+import { ifTest } from "../../utils/ifTest";
 import { textToSpeach } from "../../utils/textToSpeach";
 import styles from "./WordCard.module.scss";
 
 type Props = {
   entry: Word;
+  searchEntries: Word[];
 };
+
+export const EXAMPLES_TEST_ID = "words-card-example-word";
 
 export const WordCard: Component<Props> = (props) => {
   // one time computed values
-  const languages = enumToDescriptedArray(Languages);
+  const languages = enumToDescriptiveArray(Languages);
 
   // methods
   function speak(word: string): void {
@@ -40,7 +43,7 @@ export const WordCard: Component<Props> = (props) => {
   const examples = createMemo(() => {
     const searchFor = cleanWordVariations();
 
-    return WORDS.filter((entry) => {
+    return props.searchEntries.filter((entry) => {
       // Filter exact work
       if (entry.word === props.entry.word) return false;
 
@@ -67,7 +70,7 @@ export const WordCard: Component<Props> = (props) => {
         <Show when={props.entry.subType !== undefined}>
           <span class={styles.subType}>
             {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-            ({WordTypeSubTypes[props.entry.subType!]})
+            ({NounTypeSubTypes[props.entry.subType!]})
           </span>
         </Show>
       </div>
@@ -78,18 +81,20 @@ export const WordCard: Component<Props> = (props) => {
       </h1>
 
       {/* languages */}
-      <Show when={languages?.length}>
+      <Show when={languages.length}>
         <div class={styles.section}>
           <table class={styles.alignedList}>
             <tbody>
               <For each={languages}>
                 {(language) => (
-                  <tr>
-                    <th class={styles.alignedListHead}>{language.key}</th>
-                    <td class={styles.alignedListData}>
-                      {props.entry[language.value]}
-                    </td>
-                  </tr>
+                  <Show when={props.entry[language.value]}>
+                    <tr>
+                      <th class={styles.alignedListHead}>{language.key}</th>
+                      <td class={styles.alignedListData}>
+                        {props.entry[language.value]}
+                      </td>
+                    </tr>
+                  </Show>
                 )}
               </For>
             </tbody>
@@ -120,7 +125,7 @@ export const WordCard: Component<Props> = (props) => {
 
       {/* Examples */}
       <Show when={examples().length}>
-        <div class={styles.section}>
+        <div class={styles.section} data-testid={ifTest(EXAMPLES_TEST_ID)}>
           <h2 class={styles.title}>Examples</h2>
           <For each={examples()}>
             {(example) => (
@@ -135,7 +140,7 @@ export const WordCard: Component<Props> = (props) => {
                       {example.word}
                     </td>
                   </tr>
-                  <Show when={languages?.length}>
+                  <Show when={languages.length}>
                     <For each={languages}>
                       {(language) => (
                         <tr>

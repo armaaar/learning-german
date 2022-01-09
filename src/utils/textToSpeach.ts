@@ -1,9 +1,14 @@
-export function textToSpeach(text: string): void {
-  const msg = new SpeechSynthesisUtterance();
+export function textToSpeach(text: string): boolean {
+  if (window === undefined || window.speechSynthesis === undefined) {
+    return false; // Bail out
+  }
+
+  const msg = new window.SpeechSynthesisUtterance();
   msg.volume = 1;
   msg.rate = 0.8;
   msg.pitch = 0.8;
   msg.text = text;
   msg.lang = "de-DE";
-  speechSynthesis.speak(msg);
+  window.speechSynthesis.speak(msg);
+  return true;
 }

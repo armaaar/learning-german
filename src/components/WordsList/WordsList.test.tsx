@@ -1,5 +1,5 @@
 import { cleanup, render, screen } from "solid-testing-library";
-import { Word, WordType, WordTypeSubTypes } from "../../types/Word.type";
+import { Word, WordType, NounTypeSubTypes } from "../../types/Word.type";
 import { WordsList } from "./WordsList";
 
 describe("WordsList", () => {
@@ -18,15 +18,15 @@ describe("WordsList", () => {
     },
     {
       word: "der Mann",
-      type: WordType.word,
-      subType: WordTypeSubTypes.masculine,
+      type: WordType.noun,
+      subType: NounTypeSubTypes.masculine,
       english: "Man",
       arabic: "رجل",
     },
     {
       word: "die Frau",
-      type: WordType.word,
-      subType: WordTypeSubTypes.feminine,
+      type: WordType.noun,
+      subType: NounTypeSubTypes.feminine,
       english: "Woman",
       arabic: "امرأة",
     },
